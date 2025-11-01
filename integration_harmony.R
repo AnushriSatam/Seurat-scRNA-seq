@@ -38,8 +38,9 @@ ifnb_harmony_embedding <- Embeddings (ifnb_harmony,"harmony")
 
 #umap and clustering
 ifnb_harmony <- ifnb_harmony %>%
-  RunUMAP(reduction='harmony', dims=1:15) %>%
-  FindNeighbors(reduction='harmony',dims=1:15) %>%
-  FindClusters(resolution=0.5)
+    FindNeighbors(reduction='harmony',dims=1:15) %>%
+    FindClusters(resolution=0.5) %>%
+    RunUMAP(reduction='harmony', dims=1:15) %>%
+
 #Plot
 DimPlot(ifnb_harmony,reduction='umap', group.by='stim')
