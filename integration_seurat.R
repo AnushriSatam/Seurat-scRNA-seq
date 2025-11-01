@@ -34,8 +34,6 @@ Merged_seurat@meta.data <- separate(Merged_seurat@meta.data,col=sample, into=c('
 Merged_seurat[['percent.mt']] <- PercentageFeatureSet(Merged_seurat, pattern='^MT-')
 FeatureScatter(nsclc_seurat_obj,feature1 = "nCount_RNA",feature2="nFeature_RNA")+
   geom_smooth(method="lm")
-FeatureScatter(Merged_seurat,feature1 = "nCount_RNA",feature2="nFeature_RNA")+
-  geom_smooth(method="lm")
 
 #Filter out 
 Merged_seurat_filtered <- subset(Merged_seurat,subset=nCount_RNA > 800 & nFeature_RNA > 500 & percent.mt < 10)
